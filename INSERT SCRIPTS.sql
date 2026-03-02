@@ -180,7 +180,7 @@ NULL,NULL),
 'UPDATE tb_noop_polled_data SET processed = TRUE, run_id = :runId, working_data = TRUE, outlier = FALSE WHERE data_id IN (:dataId) AND processed = false',
 NULL,NULL),
 (99,'2026-02-09 15:25:10.377873','Get recent uploaded file source system','NOOP_SRC_SYSTEM',false,'O',
-'SELECT source_system AS "srcSys", trade_date as "tradeDate" FROM tb_noop_raw_data WHERE processed = FALSE   AND is_deleted = FALSE GROUP BY trade_date , source_system'
+'SELECT source_system AS "srcSys", trade_date as "tradeDate" FROM tb_noop_raw_data WHERE processed = FALSE   AND is_deleted = FALSE GROUP BY trade_date , source_system',
 NULL,NULL),
 (99,'2026-02-09 15:25:10.377873','updates the column (processed) in poll data table to true','NOOP_UPD_POLL_TABLE',false,'O',
 'update tb_noop_polled_data set processed = true where poll_date=:pollDate',
