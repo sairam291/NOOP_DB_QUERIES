@@ -204,7 +204,7 @@ NULL,NULL),
 'UPDATE tb_noop_raw_data SET ss_outlier = TRUE, updated_by = :update_by, updated_date = :updated_date WHERE trade_date = :trade_date AND ss_processed = FALSE AND trade_amount >= :trade_size AND trade_time::time BETWEEN :lower_ts AND :upper_ts AND is_deleted = FALSE AND run_id IN ( SELECT run_id FROM tb_noop WHERE process_run_date = :trade_date ORDER BY run_id DESC LIMIT 1 ) AND trade_price > :rate',
 NULL,NULL),
 (99,'2026-02-09 15:25:10.377873','Fetch  NOOP trading data for SS process','SS_NOOP_INITIALIZE',false,'O',
-'SELECT trade_date AS "unProcessedDate" FROM tb_noop_raw_data WHERE ss_processed = FALSE AND is_deleted = FALSE AND source_system IN ("FXCLEAR","LSEG") GROUP BY trade_date HAVING COUNT(DISTINCT source_system) = (SELECT CAST(key_value AS INTEGER) FROM tb_mst_product_config WHERE key_name = "DATA_SOURCES_COUNT" AND flow_type = "MAIN" AND product_id = 23 AND is_deleted = FALSE) UNION SELECT poll_date AS "unProcessedDate" FROM tb_noop_polled_data WHERE ss_processed = FALSE GROUP BY poll_date ORDER BY "unProcessedDate"',
+'SELECT trade_date AS "unProcessedDate" FROM tb_noop_raw_data WHERE ss_processed = FALSE AND is_deleted = FALSE AND source_system IN ('FXCLEAR','LSEG') GROUP BY trade_date HAVING COUNT(DISTINCT source_system) = (SELECT CAST(key_value AS INTEGER) FROM tb_mst_product_config WHERE key_name = 'DATA_SOURCES_COUNT' AND flow_type = 'MAIN' AND product_id = 23 AND is_deleted = FALSE) UNION SELECT poll_date AS "unProcessedDate" FROM tb_noop_polled_data WHERE ss_processed = FALSE GROUP BY poll_date ORDER BY "unProcessedDate"',
 NULL,NULL);
 
 
