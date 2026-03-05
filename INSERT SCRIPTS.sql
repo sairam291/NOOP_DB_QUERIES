@@ -46,7 +46,7 @@ VALUES
 'delete from tb_noop_published where is_deleted = FALSE and process_run_date::date = :rundate','O',NULL,NULL,4600),
 
 (0,'2026-01-23 14:12:00',false,'NOOP audit data query','fetch_audit_data',
-'SELECT process_run_date AS processRunDate, display_time AS displayTime, rate AS rate, comments AS comments, created_date AS createdDate, check_date AS updatedDate, created_by AS createdBy, checked_by AS checkedBy, secondlevel_date AS secondlevelDate, secondlevel_by AS secondlevelBy, maker_checker_status AS status, tenor as tenor FROM tb_noop_staging WHERE is_deleted = FALSE and maker_checker_status in ( :status ) and process_run_date >= :rundate1 and process_run_date <= :rundate2 and created_by<>:createdBy ORDER BY process_run_date DESC, staging_id ASC',
+'SELECT process_run_date AS processRunDate, tenor As tenor, display_time AS displayTime, rate AS rate, comments AS comments, created_date AS createdDate, check_date AS updatedDate, created_by AS createdBy, checked_by AS checkedBy, secondlevel_date AS secondlevelDate, secondlevel_by AS secondlevelBy, maker_checker_status AS status, tenor as tenor FROM tb_noop_staging WHERE is_deleted = FALSE and maker_checker_status in ( :status ) and process_run_date >= :rundate1 and process_run_date <= :rundate2 and created_by<>:createdBy ORDER BY process_run_date DESC, staging_id ASC',
 'O',NULL,NULL,4600),
 
 (0,'2026-01-23 14:12:00',false,'NOOP staged data query','fetch_stageddata',
